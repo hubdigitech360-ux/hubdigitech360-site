@@ -8,8 +8,9 @@
   --line: #e2e5ea;
   --navy: #0b1220;
   --navy-2: #121b2e;
-  --blue: #1d4ed8;
-  --blue-soft: #dbe6fd;
+  /* Bleu clair extrait du logo Hub Digitech360 (demande explicite, 2026-09-24) — remplace le bleu générique initial. */
+  --blue: #0d81fd;
+  --blue-soft: #dcedfe;
   --on-navy: #e7ecf5;
   --on-navy-soft: #93a3bd;
 }

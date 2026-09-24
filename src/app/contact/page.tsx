@@ -17,16 +17,15 @@ export default function ContactPage() {
 
       <div className="mt-10 flex flex-col items-center gap-4">
         <a
-          href="mailto:contact@hubdigitech360.cm"
+          href="mailto:hubdigitech360@gmail.com"
           className="px-6 py-3 text-sm font-semibold text-white"
           style={{ background: "var(--blue)" }}
         >
-          contact@hubdigitech360.cm
+          hubdigitech360@gmail.com
         </a>
-        <p className="text-xs text-slate-400">(adresse à confirmer avant mise en ligne)</p>
 
         <div className="mono mt-4 text-sm text-slate-600">
-          <div>+237 6XX XXX XXX <span className="text-slate-400">(à confirmer)</span></div>
+          <div>+237 697 234 123</div>
           <div className="mt-1">Douala, Cameroun</div>
         </div>
       </div>

@@ -1,4 +1,3 @@
-/** Coordonnées à confirmer/compléter par l'utilisateur — volontairement pas inventées. */
 export function Footer() {
   return (
     <footer className="border-t border-white/10 py-10" style={{ background: "var(--navy)" }}>
@@ -8,8 +7,8 @@ export function Footer() {
           <p className="mono mt-1 max-w-xs text-xs text-slate-500">Studio d&apos;ingénierie logicielle &amp; communication — Douala, Cameroun.</p>
         </div>
         <div className="mono flex flex-col gap-1 text-xs text-slate-400">
-          <span>contact@hubdigitech360.cm <span className="text-slate-600">(à confirmer)</span></span>
-          <span>+237 6XX XXX XXX <span className="text-slate-600">(à confirmer)</span></span>
+          <span>hubdigitech360@gmail.com</span>
+          <span>+237 697 234 123</span>
           <span>Douala, Cameroun</span>
         </div>
       </div>
