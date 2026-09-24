@@ -1,72 +1,140 @@
 import Link from "next/link";
 import { APP_URL } from "@/lib/config";
 
-const PILIERS = [
-  { icon: "◐", titre: "CRM & Ventes", description: "Contacts, factures de vente, paiements en ligne (CinetPay) — le suivi commercial au quotidien." },
-  { icon: "🧑‍💼", titre: "RH & Paie", description: "Paie camerounaise conforme (CNPS, IRPP, CFC...), contrats, pointage, congés, recrutement." },
-  { icon: "💰", titre: "Trésorerie & Comptabilité", description: "Caisse, comptes, pièces comptables, export SYSCOHADA — un seul circuit, de l'encaissement à la comptabilité." },
-  { icon: "⚕", titre: "Santé", description: "Patients, rendez-vous, épisodes de soins, facturation médicale — pour cliniques et cabinets médicaux." },
-  { icon: "🏗", titre: "Architecture & BTP", description: "Projets, chantiers, portail client — suivi de chantier avec photos, sans connexion requise pour le client." },
-  { icon: "🔧", titre: "Métiers spécialisés", description: "Électronique (SAV, numéros de série), boutique/shopping, cabinets comptables/juridiques/RH — un module par métier." },
+const CAPACITES = [
+  {
+    lettre: "A",
+    titre: "Ingénierie logicielle",
+    description: "SaaS propriétaire, logiciels métier sur-mesure, sites &amp; applications, automatisation — du cahier des charges au déploiement.",
+  },
+  {
+    lettre: "B",
+    titre: "Communication & marque",
+    description: "Identité visuelle, présence digitale, marketing — pour accompagner le lancement et la croissance de nos clients.",
+  },
+  {
+    lettre: "C",
+    titre: "Conseil & accompagnement",
+    description: "Diagnostic, feuille de route de digitalisation, formation des équipes à l'adoption des outils déployés.",
+  },
+];
+
+const MODULES_PERFORMA360 = [
+  "CRM & ventes",
+  "RH & paie camerounaise",
+  "Trésorerie & comptabilité",
+  "Santé",
+  "Architecture & BTP",
+  "Électronique",
 ];
 
 export default function AccueilPage() {
   return (
     <>
-      <section className="bg-gradient-to-b from-slate-950 to-slate-900 py-20 text-white">
-        <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
-          <h1 className="text-3xl font-bold leading-tight sm:text-5xl">
-            Le logiciel de gestion qui grandit avec votre structure
-          </h1>
-          <p className="mt-5 text-lg text-slate-300">
-            <strong>Performa360 Suite</strong>, conçu par Hub Digitech360, réunit CRM, RH &amp; paie,
-            trésorerie et les outils propres à votre métier — dans un seul logiciel, pensé pour les
-            réalités camerounaises.
+      <section style={{ background: "var(--navy)" }} className="py-24 text-white">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6">
+          <p className="mono text-xs uppercase tracking-wider" style={{ color: "var(--blue)" }}>
+            Studio d&apos;ingénierie logicielle — Douala, Cameroun
           </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <a
-              href={APP_URL}
-              className="rounded-lg bg-gradient-to-br from-sky-400 to-blue-700 px-6 py-3 text-sm font-semibold shadow-md shadow-blue-900/40 transition hover:opacity-90"
-            >
-              Se connecter à Performa360
+          <h1 className="mt-5 text-4xl leading-tight sm:text-5xl">
+            Nous construisons les systèmes qui font tourner votre entreprise.
+          </h1>
+          <p className="mt-6 max-w-xl text-slate-400">
+            Hub Digitech360 conçoit des logiciels sur-mesure et des plateformes SaaS pour les PME et institutions
+            camerounaises — du cahier des charges au déploiement.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <a href="#performa360" className="px-6 py-3 text-sm font-semibold text-white" style={{ background: "var(--blue)" }}>
+              Voir Performa360 →
             </a>
-            <Link
-              href="/contact"
-              className="rounded-lg border border-slate-700 px-6 py-3 text-sm font-semibold text-slate-200 transition hover:border-slate-500 hover:text-white"
-            >
-              Demander une démo
+            <Link href="/contact" className="border border-white/20 px-6 py-3 text-sm font-semibold text-slate-200 transition hover:border-white/40">
+              Discuter d&apos;un projet
             </Link>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <h2 className="text-center text-2xl font-bold text-slate-900">Un module pour chaque pilier de votre activité</h2>
-        <p className="mx-auto mt-2 max-w-2xl text-center text-sm text-slate-500">
-          Chaque structure active uniquement les piliers dont elle a besoin — pas de fonctionnalités payées pour rien.
+      <section className="mx-auto max-w-5xl px-4 py-20 sm:px-6">
+        <p className="mono text-xs uppercase tracking-wider" style={{ color: "var(--blue)" }}>
+          Ce que nous faisons
         </p>
-        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {PILIERS.map((p) => (
-            <div key={p.titre} className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-              <div className="text-2xl">{p.icon}</div>
-              <h3 className="mt-3 font-semibold text-slate-900">{p.titre}</h3>
-              <p className="mt-2 text-sm text-slate-500">{p.description}</p>
+        <h2 className="mt-2 text-2xl text-slate-900">Une double expertise — ingénierie et communication.</h2>
+        <div className="mt-10 grid grid-cols-1 gap-10 sm:grid-cols-3">
+          {CAPACITES.map((c) => (
+            <div key={c.lettre}>
+              <span className="mono text-sm" style={{ color: "var(--blue)" }}>{c.lettre}</span>
+              <h3 className="mt-2 text-lg text-slate-900">{c.titre}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-slate-500">{c.description}</p>
             </div>
           ))}
         </div>
+        <Link href="/services" className="mt-8 inline-block text-sm font-semibold" style={{ color: "var(--blue)" }}>
+          Voir le détail des services →
+        </Link>
       </section>
 
-      <section className="bg-slate-50 py-16">
-        <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
-          <h2 className="text-2xl font-bold text-slate-900">Envie de voir Performa360 en action ?</h2>
-          <p className="mt-2 text-sm text-slate-500">Contactez-nous pour une démonstration adaptée à votre métier.</p>
-          <Link
-            href="/contact"
-            className="mt-6 inline-block rounded-lg bg-gradient-to-br from-sky-400 to-blue-700 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-blue-900/40 transition hover:opacity-90"
-          >
-            Nous contacter
-          </Link>
+      <section id="performa360" className="border-y border-slate-200 bg-white py-20">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:items-center">
+          <div>
+            <p className="mono text-xs uppercase tracking-wider" style={{ color: "var(--blue)" }}>
+              Notre réalisation phare
+            </p>
+            <h2 className="mt-2 text-2xl text-slate-900 sm:text-3xl">
+              Performa360 — un vrai logiciel de gestion multi-métiers, en production.
+            </h2>
+            <p className="mt-5 text-sm leading-relaxed text-slate-500">
+              Pas une maquette : une plateforme SaaS multi-structures avec gestion des rôles en cascade, paie
+              conforme à la réglementation camerounaise (CNPS, IRPP, CFC), et des modules qui s&apos;activent
+              selon le métier réel de chaque structure cliente.
+            </p>
+            <ul className="mt-6 flex flex-col gap-2">
+              {MODULES_PERFORMA360.map((m) => (
+                <li key={m} className="flex items-center gap-2 text-sm text-slate-600">
+                  <span className="h-1.5 w-1.5 flex-none" style={{ background: "var(--blue)" }} />
+                  {m}
+                </li>
+              ))}
+            </ul>
+            <a
+              href={APP_URL}
+              className="mt-8 inline-block px-5 py-2.5 text-sm font-semibold text-white"
+              style={{ background: "var(--blue)" }}
+            >
+              Se connecter à Performa360
+            </a>
+          </div>
+          <div className="border border-slate-800 p-5" style={{ background: "var(--navy)" }}>
+            <div className="mono flex items-center justify-between text-[11px] text-slate-500">
+              <span>PERFORMA360 — APERÇU</span>
+              <span className="flex gap-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-slate-700" />
+                <span className="h-1.5 w-1.5 rounded-full bg-slate-700" />
+                <span className="h-1.5 w-1.5 rounded-full bg-slate-700" />
+              </span>
+            </div>
+            <div className="mt-4 grid grid-cols-3 gap-px" style={{ background: "var(--navy-2)" }}>
+              {[
+                ["CA du mois", "+18%"],
+                ["Structures actives", "12"],
+                ["Modules déployés", "9"],
+              ].map(([label, value]) => (
+                <div key={label} className="p-3" style={{ background: "var(--navy)" }}>
+                  <div className="text-lg font-bold text-white">{value}</div>
+                  <div className="mono text-[10px] uppercase text-slate-500">{label}</div>
+                </div>
+              ))}
+            </div>
+            <div className="mono mt-4 text-[11px] text-slate-500">CRM · RH & Paie · Trésorerie · Santé · Architecture</div>
+          </div>
         </div>
+      </section>
+
+      <section className="py-20 text-center">
+        <h2 className="text-2xl text-slate-900">Envie d&apos;en discuter ?</h2>
+        <p className="mt-2 text-sm text-slate-500">Parlons de votre besoin — logiciel, communication ou transformation digitale.</p>
+        <Link href="/contact" className="mt-6 inline-block px-6 py-3 text-sm font-semibold text-white" style={{ background: "var(--blue)" }}>
+          Nous contacter
+        </Link>
       </section>
     </>
   );

@@ -1,10 +1,31 @@
 @import "tailwindcss";
 
 :root {
-  --brand-from: #38bdf8;
-  --brand-to: #1d4ed8;
+  --bg: #f7f8fa;
+  --surface: #ffffff;
+  --ink: #12131a;
+  --ink-soft: #5b6472;
+  --line: #e2e5ea;
+  --navy: #0b1220;
+  --navy-2: #121b2e;
+  --blue: #1d4ed8;
+  --blue-soft: #dbe6fd;
+  --on-navy: #e7ecf5;
+  --on-navy-soft: #93a3bd;
 }
 
 body {
-  background-color: #f8fafc;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Work Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: "Sora", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.mono {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 }
