@@ -12,7 +12,7 @@ if (!process.env.AUTH_SECRET && process.env.NODE_ENV === "production") {
   );
 }
 const secretKey = new TextEncoder().encode(
-  process.env.AUTH_SECRET ?? "dev-secret-local-uniquement-jamais-en-production"
+  process.env.AUTH_SECRET || "dev-secret-local-uniquement-jamais-en-production"
 );
 
 export type Admin = { id: string; email: string; nom: string | null };
