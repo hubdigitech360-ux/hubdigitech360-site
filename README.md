@@ -6,10 +6,25 @@ Site public de l'agence Hub Digitech360, éditeur de [Performa360 Suite](https:/
 
 ```bash
 npm install
-npm run dev   # http://localhost:3001 (ou -- -p 3000 selon vos besoins)
+npm run dev -- -p 3001   # le site vitrine, sur le port 3001
 ```
 
 Copiez `.env.example` en `.env` et renseignez au minimum `AUTH_SECRET` (nécessaire pour l'espace admin — `openssl rand -hex 32` pour en générer un, ou toute chaîne longue en local).
+
+### ⚠️ Faire tourner le site vitrine EN MÊME TEMPS que performa360-mvp, sans conflit de port
+
+Les deux projets ont par défaut le même port (3000). Pour tester le bouton "Se connecter à Performa360" (qui pointe vers `NEXT_PUBLIC_APP_URL`) sans tomber sur un 404, il faut les lancer sur des **ports différents, dans deux fenêtres de terminal séparées** :
+
+| Projet | Commande | Port |
+|---|---|---|
+| `hubdigitech360-site` (ce dépôt) | `npm run dev -- -p 3001` | 3001 |
+| `performa360-mvp` | `npm run dev` | 3000 |
+
+Et dans le `.env` du site vitrine, garder :
+```
+NEXT_PUBLIC_APP_URL=http://localhost:3000/login
+```
+(l'URL de connexion de performa360-mvp — à adapter si vous changez son port ou une fois en production).
 
 ⚠️ **`.env` et la base de données (`dev.db`) sont volontairement ignorés par git** (voir `.gitignore`) — chaque machine (poste local, serveur, session cloud) doit créer les siens et n'a donc **aucun compte administrateur par défaut**. Après avoir créé `.env`, créez votre propre compte (voir "Espace administrateur" ci-dessous) avant de tenter de vous connecter à `/admin/login`.
 
