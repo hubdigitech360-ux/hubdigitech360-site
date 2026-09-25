@@ -1,10 +1,14 @@
+import { getParametres } from "@/lib/repo-parametres";
+
 /**
  * Pas de formulaire d'envoi ici volontairement : un formulaire qui ne
  * déclenche réellement rien (aucun service d'email configuré pour CE
  * projet séparé) serait trompeur. Un simple lien mailto/tél fonctionne
  * immédiatement et honnêtement.
  */
-export default function ContactPage() {
+export default async function ContactPage() {
+  const p = getParametres(["contact_email", "contact_telephone", "contact_adresse"]);
+
   return (
     <div className="mx-auto max-w-xl px-4 py-20 text-center sm:px-6">
       <p className="mono text-xs uppercase tracking-wider" style={{ color: "var(--blue)" }}>
@@ -17,16 +21,16 @@ export default function ContactPage() {
 
       <div className="mt-10 flex flex-col items-center gap-4">
         <a
-          href="mailto:hubdigitech360@gmail.com"
+          href={`mailto:${p.contact_email}`}
           className="px-6 py-3 text-sm font-semibold text-white"
           style={{ background: "var(--blue)" }}
         >
-          hubdigitech360@gmail.com
+          {p.contact_email}
         </a>
 
         <div className="mono mt-4 text-sm text-slate-600">
-          <div>+237 697 234 123</div>
-          <div className="mt-1">Douala, Cameroun</div>
+          <div>{p.contact_telephone}</div>
+          <div className="mt-1">{p.contact_adresse}</div>
         </div>
       </div>
     </div>

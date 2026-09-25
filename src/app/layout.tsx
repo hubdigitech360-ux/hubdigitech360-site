@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Hub Digitech360 — Éditeur de Performa360 Suite",
@@ -19,11 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
       </head>
-      <body className="flex min-h-screen flex-col antialiased">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-      </body>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }

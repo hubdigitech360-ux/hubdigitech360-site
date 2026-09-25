@@ -24,6 +24,10 @@ yarn-error.log*
 # vercel
 .vercel
 
+# base de données locale (admin, publications, textes du site) et fichiers téléversés
+/dev.db*
+/public/uploads/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

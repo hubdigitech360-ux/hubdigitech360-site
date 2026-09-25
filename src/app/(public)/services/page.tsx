@@ -1,27 +1,22 @@
 import Link from "next/link";
+import { getParametres } from "@/lib/repo-parametres";
 
-const CATEGORIES = [
-  {
-    lettre: "A",
-    titre: "Ingénierie logicielle",
-    description:
-      "Notre cœur de métier. Nous concevons des plateformes SaaS propriétaires — comme Performa360 — et des logiciels sur-mesure (CRM, ERP, systèmes de gestion métier) pour des secteurs exigeants. Aussi : sites web, applications, automatisation et intégration d'IA, et le support technique une fois en production.",
-  },
-  {
-    lettre: "B",
-    titre: "Communication & marque",
-    description:
-      "Identité de marque (logo, charte graphique), pilotage de la communication digitale et marketing — pour donner à nos clients une présence en ligne à la hauteur de leur logiciel.",
-  },
-  {
-    lettre: "C",
-    titre: "Conseil & accompagnement",
-    description:
-      "Diagnostic et feuille de route de transformation digitale, formation des équipes à l'adoption des outils déployés — nous restons après la livraison.",
-  },
-];
+export default async function ServicesPage() {
+  const p = getParametres([
+    "services_a_titre",
+    "services_a_texte_detail",
+    "services_b_titre",
+    "services_b_texte_detail",
+    "services_c_titre",
+    "services_c_texte_detail",
+  ]);
 
-export default function ServicesPage() {
+  const CATEGORIES = [
+    { lettre: "A", titre: p.services_a_titre, description: p.services_a_texte_detail },
+    { lettre: "B", titre: p.services_b_titre, description: p.services_b_texte_detail },
+    { lettre: "C", titre: p.services_c_titre, description: p.services_c_texte_detail },
+  ];
+
   return (
     <div className="mx-auto max-w-2xl px-4 py-20 sm:px-6">
       <p className="mono text-xs uppercase tracking-wider" style={{ color: "var(--blue)" }}>

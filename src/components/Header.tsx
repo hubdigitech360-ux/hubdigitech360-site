@@ -5,6 +5,7 @@ import { APP_URL } from "@/lib/config";
 const NAV = [
   { href: "/", label: "Accueil" },
   { href: "/services", label: "Services" },
+  { href: "/actualites", label: "Actualités" },
   { href: "/a-propos", label: "À propos" },
   { href: "/contact", label: "Contact" },
 ];

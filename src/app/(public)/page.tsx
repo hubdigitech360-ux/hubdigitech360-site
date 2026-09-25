@@ -1,23 +1,6 @@
 import Link from "next/link";
 import { APP_URL } from "@/lib/config";
-
-const CAPACITES = [
-  {
-    lettre: "A",
-    titre: "Ingénierie logicielle",
-    description: "SaaS propriétaire, logiciels métier sur-mesure, sites &amp; applications, automatisation — du cahier des charges au déploiement.",
-  },
-  {
-    lettre: "B",
-    titre: "Communication & marque",
-    description: "Identité visuelle, présence digitale, marketing — pour accompagner le lancement et la croissance de nos clients.",
-  },
-  {
-    lettre: "C",
-    titre: "Conseil & accompagnement",
-    description: "Diagnostic, feuille de route de digitalisation, formation des équipes à l'adoption des outils déployés.",
-  },
-];
+import { getParametres } from "@/lib/repo-parametres";
 
 const MODULES_PERFORMA360 = [
   "CRM & ventes",
@@ -28,7 +11,24 @@ const MODULES_PERFORMA360 = [
   "Électronique",
 ];
 
-export default function AccueilPage() {
+export default async function AccueilPage() {
+  const p = getParametres([
+    "accueil_titre",
+    "accueil_soustitre",
+    "services_a_titre",
+    "services_a_texte",
+    "services_b_titre",
+    "services_b_texte",
+    "services_c_titre",
+    "services_c_texte",
+  ]);
+
+  const CAPACITES = [
+    { lettre: "A", titre: p.services_a_titre, description: p.services_a_texte },
+    { lettre: "B", titre: p.services_b_titre, description: p.services_b_texte },
+    { lettre: "C", titre: p.services_c_titre, description: p.services_c_texte },
+  ];
+
   return (
     <>
       <section style={{ background: "var(--navy)" }} className="py-24 text-white">
@@ -36,13 +36,8 @@ export default function AccueilPage() {
           <p className="mono text-xs uppercase tracking-wider" style={{ color: "var(--blue)" }}>
             Studio d&apos;ingénierie logicielle — Douala, Cameroun
           </p>
-          <h1 className="mt-5 text-4xl leading-tight sm:text-5xl">
-            Nous construisons les systèmes qui font tourner votre entreprise.
-          </h1>
-          <p className="mt-6 max-w-xl text-slate-400">
-            Hub Digitech360 conçoit des logiciels sur-mesure et des plateformes SaaS pour les PME et institutions
-            camerounaises — du cahier des charges au déploiement.
-          </p>
+          <h1 className="mt-5 text-4xl leading-tight sm:text-5xl">{p.accueil_titre}</h1>
+          <p className="mt-6 max-w-xl text-slate-400">{p.accueil_soustitre}</p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a href="#performa360" className="px-6 py-3 text-sm font-semibold text-white" style={{ background: "var(--blue)" }}>
               Voir Performa360 →
