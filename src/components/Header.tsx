@@ -26,8 +26,7 @@ export function Header() {
         </nav>
         <a
           href={APP_URL}
-          className="rounded-none px-4 py-2 text-sm font-semibold text-white transition hover:opacity-80"
-          style={{ background: "var(--blue)" }}
+          className="btn-primary rounded-none px-4 py-2 text-sm"
         >
           Se connecter →
         </a>

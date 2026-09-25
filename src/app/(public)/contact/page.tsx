@@ -22,8 +22,7 @@ export default async function ContactPage() {
       <div className="mt-10 flex flex-col items-center gap-4">
         <a
           href={`mailto:${p.contact_email}`}
-          className="px-6 py-3 text-sm font-semibold text-white"
-          style={{ background: "var(--blue)" }}
+          className="btn-primary px-6 py-3 text-sm"
         >
           {p.contact_email}
         </a>

@@ -29,7 +29,7 @@ export default function AdminDashboardPage() {
       </div>
 
       <div className="flex flex-wrap gap-3">
-        <Link href="/admin/publications/nouveau" className="px-5 py-2.5 text-sm font-semibold text-white" style={{ background: "var(--blue)" }}>
+        <Link href="/admin/publications/nouveau" className="btn-primary px-5 py-2.5 text-sm">
           + Nouvelle publication
         </Link>
         <Link href="/admin/contenu" className="border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-700">

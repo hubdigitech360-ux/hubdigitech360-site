@@ -42,7 +42,7 @@ export default async function ServicesPage() {
 
       <div className="mt-16 border-t border-slate-200 pt-10 text-center">
         <p className="text-sm text-slate-500">Une question sur nos offres ou votre besoin spécifique ?</p>
-        <Link href="/contact" className="mt-4 inline-block px-5 py-2.5 text-sm font-semibold text-white" style={{ background: "var(--blue)" }}>
+        <Link href="/contact" className="btn-primary mt-4 inline-block px-5 py-2.5 text-sm">
           Contactez-nous
         </Link>
       </div>

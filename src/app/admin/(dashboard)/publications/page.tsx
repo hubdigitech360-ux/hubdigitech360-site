@@ -9,7 +9,7 @@ export default function AdminPublicationsPage() {
     <div className="flex flex-col gap-6">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold text-slate-900">Publications</h1>
-        <Link href="/admin/publications/nouveau" className="px-4 py-2 text-sm font-semibold text-white" style={{ background: "var(--blue)" }}>
+        <Link href="/admin/publications/nouveau" className="btn-primary px-4 py-2 text-sm">
           + Nouvelle
         </Link>
       </div>

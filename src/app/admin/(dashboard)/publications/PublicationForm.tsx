@@ -134,8 +134,7 @@ export function PublicationForm({
       <button
         type="submit"
         disabled={pending}
-        className="self-start px-6 py-2.5 text-sm font-semibold text-white disabled:opacity-60"
-        style={{ background: "var(--blue)" }}
+        className="btn-primary self-start px-6 py-2.5 text-sm disabled:opacity-60"
       >
         {pending ? "Enregistrement…" : "Enregistrer"}
       </button>

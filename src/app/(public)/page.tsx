@@ -39,7 +39,7 @@ export default async function AccueilPage() {
           <h1 className="mt-5 text-4xl leading-tight sm:text-5xl">{p.accueil_titre}</h1>
           <p className="mt-6 max-w-xl text-slate-400">{p.accueil_soustitre}</p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <a href="#performa360" className="px-6 py-3 text-sm font-semibold text-white" style={{ background: "var(--blue)" }}>
+            <a href="#performa360" className="btn-primary px-6 py-3 text-sm">
               Voir Performa360 →
             </a>
             <Link href="/contact" className="border border-white/20 px-6 py-3 text-sm font-semibold text-slate-200 transition hover:border-white/40">
@@ -92,8 +92,7 @@ export default async function AccueilPage() {
             </ul>
             <a
               href={APP_URL}
-              className="mt-8 inline-block px-5 py-2.5 text-sm font-semibold text-white"
-              style={{ background: "var(--blue)" }}
+              className="btn-primary mt-8 inline-block px-5 py-2.5 text-sm"
             >
               Se connecter à Performa360
             </a>
@@ -127,7 +126,7 @@ export default async function AccueilPage() {
       <section className="py-20 text-center">
         <h2 className="text-2xl text-slate-900">Envie d&apos;en discuter ?</h2>
         <p className="mt-2 text-sm text-slate-500">Parlons de votre besoin — logiciel, communication ou transformation digitale.</p>
-        <Link href="/contact" className="mt-6 inline-block px-6 py-3 text-sm font-semibold text-white" style={{ background: "var(--blue)" }}>
+        <Link href="/contact" className="btn-primary mt-6 inline-block px-6 py-3 text-sm">
           Nous contacter
         </Link>
       </section>
