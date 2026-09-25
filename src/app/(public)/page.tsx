@@ -54,9 +54,22 @@ export default async function AccueilPage() {
           Ce que nous faisons
         </p>
         <h2 className="mt-2 text-2xl text-slate-900">Une double expertise — ingénierie et communication.</h2>
-        <div className="mt-10 grid grid-cols-1 gap-10 sm:grid-cols-3">
-          {CAPACITES.map((c) => (
-            <div key={c.lettre}>
+        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div
+            className="rounded-2xl p-8 text-white transition duration-200 hover:-translate-y-1 hover:shadow-2xl sm:col-span-2"
+            style={{ background: "var(--navy)" }}
+          >
+            <span className="mono text-sm" style={{ color: "var(--blue)" }}>
+              {CAPACITES[0].lettre}
+            </span>
+            <h3 className="mt-2 text-xl">{CAPACITES[0].titre}</h3>
+            <p className="mt-2 max-w-lg text-sm leading-relaxed text-slate-400">{CAPACITES[0].description}</p>
+          </div>
+          {CAPACITES.slice(1).map((c) => (
+            <div
+              key={c.lettre}
+              className="rounded-2xl border border-slate-200 bg-white p-6 transition duration-200 hover:-translate-y-1 hover:shadow-xl"
+            >
               <span className="mono text-sm" style={{ color: "var(--blue)" }}>{c.lettre}</span>
               <h3 className="mt-2 text-lg text-slate-900">{c.titre}</h3>
               <p className="mt-2 text-sm leading-relaxed text-slate-500">{c.description}</p>
@@ -97,7 +110,7 @@ export default async function AccueilPage() {
               Se connecter à Performa360
             </a>
           </div>
-          <div className="border border-slate-800 p-5" style={{ background: "var(--navy)" }}>
+          <div className="rounded-2xl border border-slate-800 p-5" style={{ background: "var(--navy)" }}>
             <div className="mono flex items-center justify-between text-[11px] text-slate-500">
               <span>PERFORMA360 — APERÇU</span>
               <span className="flex gap-1.5">
@@ -106,19 +119,29 @@ export default async function AccueilPage() {
                 <span className="h-1.5 w-1.5 rounded-full bg-slate-700" />
               </span>
             </div>
-            <div className="mt-4 grid grid-cols-3 gap-px" style={{ background: "var(--navy-2)" }}>
+            <div className="mt-4 grid grid-cols-3 gap-2">
               {[
                 ["CA du mois", "+18%"],
                 ["Structures actives", "12"],
                 ["Modules déployés", "9"],
               ].map(([label, value]) => (
-                <div key={label} className="p-3" style={{ background: "var(--navy)" }}>
+                <div key={label} className="rounded-xl p-3" style={{ background: "var(--navy-2)" }}>
                   <div className="text-lg font-bold text-white">{value}</div>
                   <div className="mono text-[10px] uppercase text-slate-500">{label}</div>
                 </div>
               ))}
             </div>
-            <div className="mono mt-4 text-[11px] text-slate-500">CRM · RH & Paie · Trésorerie · Santé · Architecture</div>
+            <div className="mt-4 flex flex-wrap gap-1.5">
+              {MODULES_PERFORMA360.map((m) => (
+                <span
+                  key={m}
+                  className="mono rounded-full px-2.5 py-1 text-[10px] text-slate-300"
+                  style={{ background: "var(--navy-2)" }}
+                >
+                  {m}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </section>
