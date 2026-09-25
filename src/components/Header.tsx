@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Logo } from "./Logo";
-import { APP_URL } from "@/lib/config";
+import { APP_URL, DEMO_URL } from "@/lib/config";
 
 const NAV = [
   { href: "/", label: "Accueil" },
@@ -24,12 +24,14 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <a
-          href={APP_URL}
-          className="btn-primary rounded-none px-4 py-2 text-sm"
-        >
-          Se connecter →
-        </a>
+        <div className="order-2 flex items-center gap-3 sm:order-none">
+          <a href={APP_URL} className="hidden text-sm font-medium text-slate-300 transition hover:text-white sm:inline">
+            Se connecter
+          </a>
+          <a href={`${DEMO_URL}?ref=hub360-site`} className="btn-primary rounded-none px-4 py-2 text-sm">
+            Essayer Performa360 →
+          </a>
+        </div>
       </div>
     </header>
   );

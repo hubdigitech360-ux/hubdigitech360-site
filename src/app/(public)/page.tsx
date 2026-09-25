@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { APP_URL } from "@/lib/config";
+import { APP_URL, DEMO_URL } from "@/lib/config";
 import { getParametres } from "@/lib/repo-parametres";
 
 const MODULES_PERFORMA360 = [
@@ -103,12 +103,14 @@ export default async function AccueilPage() {
                 </li>
               ))}
             </ul>
-            <a
-              href={APP_URL}
-              className="btn-primary mt-8 inline-block px-5 py-2.5 text-sm"
-            >
-              Se connecter à Performa360
-            </a>
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <a href={`${DEMO_URL}?ref=hub360-site`} className="btn-primary inline-block px-5 py-2.5 text-sm">
+                Essayer Performa360 →
+              </a>
+              <a href={APP_URL} className="text-sm font-semibold" style={{ color: "var(--blue)" }}>
+                Se connecter à Performa360
+              </a>
+            </div>
           </div>
           <div className="rounded-2xl border border-slate-800 p-5" style={{ background: "var(--navy)" }}>
             <div className="mono flex items-center justify-between text-[11px] text-slate-500">
