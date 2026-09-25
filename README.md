@@ -39,8 +39,13 @@ npm run creer-admin -- email@exemple.com "MotDePasse123!" "Nom (optionnel)"
 - Fichiers téléversés (images/vidéos de publications) dans `public/uploads/` (ignoré par git, comme `dev.db`).
 - Pages publiques regroupées sous `src/app/(public)/` (en-tête/pied de page communs), `/admin/*` en dehors de ce groupe (interface admin dédiée, sans le menu marketing).
 
+## Statut de déploiement
+
+**Le site n'est pas encore en ligne** (pas d'hébergement configuré à ce jour) — il existe uniquement en local (`npm run dev`) et sur GitHub (`hubdigitech360-ux/hubdigitech360-site`, branche `master`). Le choix de l'hébergeur (VPS Hostinger/LWS ou autre) a été reporté volontairement — voir la conversation du 2026-09-25.
+
 ## À faire avant mise en ligne réelle
 
+- Choisir et configurer un hébergeur (voir "Statut de déploiement" ci-dessus).
 - Définir `NEXT_PUBLIC_APP_URL` vers la vraie URL publique de Performa360 une fois déployé.
 - Définir un vrai `AUTH_SECRET` en production (le serveur refuse de démarrer sans, voir `src/lib/auth.ts`).
 - Sur un hébergeur à disque persistant, définir `DB_PATH` (voir `.env.example`) pour que `dev.db` et `public/uploads/` survivent aux redéploiements.
