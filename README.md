@@ -9,7 +9,9 @@ npm install
 npm run dev   # http://localhost:3001 (ou -- -p 3000 selon vos besoins)
 ```
 
-Copiez `.env.example` en `.env` et renseignez au minimum `AUTH_SECRET` (nécessaire pour l'espace admin — `openssl rand -hex 32` pour en générer un).
+Copiez `.env.example` en `.env` et renseignez au minimum `AUTH_SECRET` (nécessaire pour l'espace admin — `openssl rand -hex 32` pour en générer un, ou toute chaîne longue en local).
+
+⚠️ **`.env` et la base de données (`dev.db`) sont volontairement ignorés par git** (voir `.gitignore`) — chaque machine (poste local, serveur, session cloud) doit créer les siens et n'a donc **aucun compte administrateur par défaut**. Après avoir créé `.env`, créez votre propre compte (voir "Espace administrateur" ci-dessous) avant de tenter de vous connecter à `/admin/login`.
 
 ## Pages publiques
 
@@ -23,10 +25,11 @@ Copiez `.env.example` en `.env` et renseignez au minimum `AUTH_SECRET` (nécessa
 
 Un compte administrateur permet de créer des publications (actualités) et de modifier les textes/coordonnées du site, sans intervention développeur — voir la conversation du 2026-09-25 pour le contexte de cette demande.
 
-**Créer un compte administrateur** (le premier, ou pour changer un mot de passe) :
+**Créer un compte administrateur** (le premier, ou pour changer un mot de passe existant — la commande met à jour le mot de passe si l'email existe déjà) :
 ```bash
 npm run creer-admin -- email@exemple.com "MotDePasse123!" "Nom (optionnel)"
 ```
+Connexion ensuite sur `/admin/login` avec cet email/mot de passe.
 
 **Ce qui est gérable depuis `/admin` :**
 - **Publications** (`/admin/publications`) — créer/modifier/supprimer un article : titre, extrait, contenu (mise en forme légère : `**gras**`, `*italique*`, `[texte](url)`, émojis via les boutons dédiés), image de couverture (upload), vidéo (lien YouTube/Vimeo ou fichier). Statut brouillon/publié — seuls les articles publiés apparaissent sur `/actualites`.
