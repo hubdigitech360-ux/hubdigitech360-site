@@ -8,7 +8,7 @@ export async function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 sm:flex-row sm:items-start sm:justify-between sm:px-6">
         <div>
           <div className="font-bold text-white">Hub Digitech360</div>
-          <p className="mono mt-1 max-w-xs text-xs text-slate-500">Studio d&apos;ingénierie logicielle &amp; communication — Douala, Cameroun.</p>
+          <p className="mono mt-1 max-w-xs text-xs text-slate-500">Agence Tech, Marketing, Communication &amp; Transformation digitale — Douala, Cameroun.</p>
         </div>
         <div className="mono flex flex-col gap-1 text-xs text-slate-400">
           <span>{p.contact_email}</span>

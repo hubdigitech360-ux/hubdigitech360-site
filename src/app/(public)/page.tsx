@@ -34,7 +34,7 @@ export default async function AccueilPage() {
       <section style={{ background: "var(--navy)" }} className="py-24 text-white">
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
           <p className="mono text-xs uppercase tracking-wider" style={{ color: "var(--blue)" }}>
-            Studio d&apos;ingénierie logicielle — Douala, Cameroun
+            Agence Tech, Marketing &amp; Communication — Douala, Cameroun
           </p>
           <h1 className="mt-5 text-4xl leading-tight sm:text-5xl">{p.accueil_titre}</h1>
           <p className="mt-6 max-w-xl text-slate-400">{p.accueil_soustitre}</p>

@@ -27,7 +27,7 @@ export const PARAMETRES_DEFAUT: Record<string, string> = {
     "Diagnostic et feuille de route de transformation digitale, formation des équipes à l'adoption des outils déployés — nous restons après la livraison.",
 
   a_propos_texte_1:
-    "Hub Digitech360 est un studio d'ingénierie logicielle basé à Douala. Nous concevons des systèmes pensés pour les réalités des structures camerounaises — PME, cliniques, cabinets, structures associatives — plutôt que des adaptations de produits conçus ailleurs.",
+    "Hub Digitech360 est une agence Tech, Marketing, Communication & Transformation digitale basée à Douala. Nous concevons des systèmes pensés pour les réalités des structures camerounaises — PME, cliniques, cabinets, structures associatives — plutôt que des adaptations de produits conçus ailleurs.",
   a_propos_texte_2:
     "Performa360, notre réalisation phare, en est la preuve : une plateforme SaaS multi-métiers où chaque structure n'active que les modules dont elle a besoin, avec une paie conforme à la réglementation camerounaise et des paiements en ligne adaptés au marché local.",
   a_propos_texte_3:
