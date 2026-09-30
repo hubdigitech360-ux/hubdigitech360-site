@@ -40,7 +40,7 @@ export default async function NotreVisionPage() {
   const equipe = listMembresEquipe();
 
   return (
-    <div style={{ background: "linear-gradient(180deg, #ffffff 0%, var(--blue-soft) 100%)" }}>
+    <div style={{ background: "var(--blue-soft)" }}>
       <div className="mx-auto max-w-4xl px-4 py-20 sm:px-6">
         <p className="mono text-xs uppercase tracking-wider" style={{ color: "var(--blue)" }}>
           Notre Vision
@@ -76,7 +76,7 @@ export default async function NotreVisionPage() {
         </p>
         <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
           {[p.vision_stat_1, p.vision_stat_2].map((stat, i) => (
-            <div key={i} className="rounded-2xl p-6 shadow-sm" style={{ background: "var(--blue-soft)" }}>
+            <div key={i} className="rounded-2xl p-6 shadow-sm" style={{ background: "#ffffff" }}>
               <p className="text-sm leading-relaxed text-slate-700">{stat}</p>
             </div>
           ))}
@@ -126,10 +126,7 @@ export default async function NotreVisionPage() {
           <p className="mt-4 text-sm text-slate-400">Présentation de l&apos;équipe à venir.</p>
         )}
 
-        <div
-          className="mt-16 rounded-2xl p-8 text-center"
-          style={{ background: "linear-gradient(135deg, var(--blue-soft) 0%, #ffffff 100%)" }}
-        >
+        <div className="mt-16 rounded-2xl p-8 text-center shadow-sm" style={{ background: "#ffffff" }}>
           <p className="titre-biseaute text-xl">{p.vision_horizon}</p>
           <Link href="/contact" className="btn-primary mt-6 inline-block px-5 py-2.5 text-sm">
             Parlons de votre PME
