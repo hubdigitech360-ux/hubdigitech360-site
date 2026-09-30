@@ -78,6 +78,54 @@ export function ContenuForm({ valeurs }: { valeurs: Record<string, string> }) {
         <Champ cle="a_propos_texte_3" label="Paragraphe 3" valeur={valeurs.a_propos_texte_3} zone />
       </Section>
 
+      <Section titre="Page Notre Vision — textes">
+        <Champ cle="vision_titre" label="Titre principal" valeur={valeurs.vision_titre} zone />
+        <Champ cle="vision_intro" label="Paragraphe d'introduction" valeur={valeurs.vision_intro} zone />
+        <Champ cle="vision_mission" label="Notre mission" valeur={valeurs.vision_mission} zone />
+        <Champ cle="vision_stat_1" label="Chiffre-clé 1 (avec source)" valeur={valeurs.vision_stat_1} zone />
+        <Champ cle="vision_stat_2" label="Chiffre-clé 2 (avec source)" valeur={valeurs.vision_stat_2} zone />
+        <Champ cle="vision_diff_1_titre" label="Différenciateur 1 — titre" valeur={valeurs.vision_diff_1_titre} />
+        <Champ cle="vision_diff_1_texte" label="Différenciateur 1 — texte" valeur={valeurs.vision_diff_1_texte} zone />
+        <Champ cle="vision_diff_2_titre" label="Différenciateur 2 — titre" valeur={valeurs.vision_diff_2_titre} />
+        <Champ cle="vision_diff_2_texte" label="Différenciateur 2 — texte" valeur={valeurs.vision_diff_2_texte} zone />
+        <Champ cle="vision_diff_3_titre" label="Différenciateur 3 — titre" valeur={valeurs.vision_diff_3_titre} />
+        <Champ cle="vision_diff_3_texte" label="Différenciateur 3 — texte" valeur={valeurs.vision_diff_3_texte} zone />
+        <Champ cle="vision_horizon" label="Phrase de clôture (horizon 2030)" valeur={valeurs.vision_horizon} zone />
+      </Section>
+
+      <Section titre="Page Notre Vision — photos & vidéo">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+          {["vision_photo_1_url", "vision_photo_2_url", "vision_photo_3_url"].map((cle, i) => (
+            <div key={cle} className="flex flex-col gap-1">
+              <label className="text-xs font-medium text-slate-600">Photo {i + 1}</label>
+              {valeurs[cle] && <img src={valeurs[cle]} alt="" className="mb-1 h-24 w-full object-cover" />}
+              <input type="file" name={cle} accept="image/*" className="text-xs" />
+              {valeurs[cle] && (
+                <label className="mt-1 flex items-center gap-1.5 text-[11px] text-slate-500">
+                  <input type="checkbox" name={`${cle}_supprimer`} value="1" /> Retirer
+                </label>
+              )}
+            </div>
+          ))}
+        </div>
+        <div className="flex flex-col gap-1">
+          <label className="text-xs font-medium text-slate-600">Vidéo (lien YouTube/Vimeo, ou fichier)</label>
+          {valeurs.vision_video_url && <p className="mb-1 truncate text-[11px] text-slate-400">Actuelle : {valeurs.vision_video_url}</p>}
+          <input
+            type="text"
+            name="vision_video_url_externe"
+            placeholder="https://youtube.com/watch?v=..."
+            className="mb-1 border border-slate-300 px-3 py-1.5 text-xs outline-none focus:border-slate-500"
+          />
+          <input type="file" name="vision_video_url" accept="video/*" className="text-xs" />
+          {valeurs.vision_video_url && (
+            <label className="mt-1 flex items-center gap-1.5 text-[11px] text-slate-500">
+              <input type="checkbox" name="vision_video_url_supprimer" value="1" /> Retirer la vidéo actuelle
+            </label>
+          )}
+        </div>
+      </Section>
+
       {state.error && <div className="bg-red-50 px-3 py-2 text-xs text-red-700">{state.error}</div>}
       {state.success && <div className="bg-emerald-50 px-3 py-2 text-xs text-emerald-700">{state.success}</div>}
 

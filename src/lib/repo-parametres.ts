@@ -32,6 +32,34 @@ export const PARAMETRES_DEFAUT: Record<string, string> = {
     "Performa360, notre réalisation phare, en est la preuve : une plateforme SaaS multi-métiers où chaque structure n'active que les modules dont elle a besoin, avec une paie conforme à la réglementation camerounaise et des paiements en ligne adaptés au marché local.",
   a_propos_texte_3:
     "Au-delà du logiciel, nous accompagnons chaque structure — de la configuration initiale à la formation des équipes, jusqu'au support une fois en production.",
+
+  // Page "Notre Vision" (demande explicite, 2026-09-30).
+  vision_titre: "Devenir le leader du pilotage de performance numérique pour les PME d'Afrique francophone d'ici 2030.",
+  vision_intro:
+    "Notre vision repose sur une conviction fondatrice : les PME africaines ont les mêmes ambitions de croissance que leurs homologues mondiales — mais accès à des outils inadéquats, inadaptés ou inabordables. Hub Digitech360 comble ce vide, avec des plateformes SaaS intelligentes, mobiles, intégrées et accessibles, construites par l'Afrique, pour l'Afrique.",
+  vision_mission:
+    "Notre mission : concevoir, développer et commercialiser des solutions logicielles qui permettent aux dirigeants de PME africaines de piloter leur activité en temps réel, d'automatiser leurs processus opérationnels et de prendre des décisions fondées sur des données fiables — depuis leur téléphone mobile.",
+  vision_stat_1:
+    "443 524 PME recensées au Cameroun en 2024, en hausse de 12,8 % sur un an (Ministère des PME, de l'Économie Sociale et de l'Artisanat — Annuaire statistique 2024)",
+  vision_stat_2:
+    "416 millions de personnes utilisent déjà internet mobile en Afrique, pour un taux de pénétration de 28 % — une marge de croissance considérable (GSMA, The Mobile Economy Africa 2025)",
+  vision_diff_1_titre: "Spécialisation verticale PME africaines",
+  vision_diff_1_texte:
+    "Des produits construits pour les contraintes réelles du marché africain : connexion mobile variable, paiement en FCFA, WhatsApp comme canal principal.",
+  vision_diff_2_titre: "Une plateforme intégrée, pas des outils fragmentés",
+  vision_diff_2_texte:
+    "Une interface unique centralisant CRM, RH, comptabilité, opérations et IA — là où les PME jonglent aujourd'hui avec plusieurs outils non connectés.",
+  vision_diff_3_titre: "L'IA conversationnelle comme standard, pas comme option",
+  vision_diff_3_texte:
+    "Un assistant intelligent natif, et non un module payant additionnel, pour démocratiser l'analyse de performance auprès de tout dirigeant.",
+  vision_horizon:
+    "2030 — Horizon de notre vision : devenir la référence du pilotage numérique pour les PME et institutions d'Afrique francophone (objectif stratégique interne Hub Digitech360).",
+
+  // Médias de la page "Notre Vision" — vides par défaut, à téléverser depuis l'admin.
+  vision_photo_1_url: "",
+  vision_photo_2_url: "",
+  vision_photo_3_url: "",
+  vision_video_url: "",
 };
 
 export function getParametre(cle: string): string {

@@ -46,6 +46,18 @@ function init(): DatabaseSync {
       valeur TEXT,
       updatedAt TEXT NOT NULL DEFAULT (datetime('now'))
     );
+
+    -- Page "Notre Vision" — présentation de l'équipe (demande explicite,
+    -- 2026-09-30). Liste distincte des publications : pas de statut
+    -- brouillon/publié, un membre ajouté est immédiatement visible.
+    CREATE TABLE IF NOT EXISTS membres_equipe (
+      id TEXT PRIMARY KEY,
+      nom TEXT NOT NULL,
+      poste TEXT NOT NULL,
+      photoUrl TEXT,
+      ordreAffichage INTEGER NOT NULL DEFAULT 0,
+      createdAt TEXT NOT NULL DEFAULT (datetime('now'))
+    );
   `);
 
   return db;

@@ -1,11 +1,9 @@
 "use server";
 
-import { randomUUID } from "node:crypto";
-import { mkdir, unlink, writeFile } from "node:fs/promises";
-import path from "node:path";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { getCurrentAdmin } from "@/lib/auth";
+import { enregistrerFichier, supprimerFichierPublic, TAILLE_MAX_IMAGE, TAILLE_MAX_VIDEO } from "@/lib/uploads";
 import {
   creerPublication,
   findPublicationById,
@@ -14,26 +12,6 @@ import {
   type StatutPublication,
 } from "@/lib/repo-publications";
 import type { ActionState } from "./auth";
-
-const TAILLE_MAX_IMAGE = 8 * 1024 * 1024; // 8 Mo
-const TAILLE_MAX_VIDEO = 80 * 1024 * 1024; // 80 Mo
-const DOSSIER_UPLOADS = path.join(process.cwd(), "public", "uploads");
-
-async function enregistrerFichier(fichier: File, sousDossier: "images" | "videos"): Promise<string> {
-  const extension = fichier.name.includes(".") ? fichier.name.split(".").pop() : "bin";
-  const nomFichier = `${randomUUID()}.${extension}`;
-  const dossier = path.join(DOSSIER_UPLOADS, sousDossier);
-  await mkdir(dossier, { recursive: true });
-  const buffer = Buffer.from(await fichier.arrayBuffer());
-  await writeFile(path.join(dossier, nomFichier), buffer);
-  return `/uploads/${sousDossier}/${nomFichier}`;
-}
-
-async function supprimerFichierPublic(url: string | null): Promise<void> {
-  if (url?.startsWith("/uploads/")) {
-    await unlink(path.join(process.cwd(), "public", url)).catch(() => {});
-  }
-}
 
 async function extraireChamps(formData: FormData, ancienneImageUrl: string | null, ancienneVideoUrl: string | null) {
   const titre = String(formData.get("titre") ?? "").trim();

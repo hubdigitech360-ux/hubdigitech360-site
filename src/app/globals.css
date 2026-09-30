@@ -48,3 +48,17 @@ h1, h2, h3 {
 .btn-primary:active {
   transform: translateY(0);
 }
+
+/**
+ * Titrage biseauté en bleu clair — page "Notre Vision" (demande explicite,
+ * 2026-09-30 : « au lieu d'utiliser le bleu foncé ou marine, utiliser plutôt
+ * le bleu clair, en ajoutant un peu de biseautage dans les titrages »).
+ * Le degradé blanc → bleu clair → bleu, associé à une ombre portée douce,
+ * donne un relief (biseau) au texte sans dépendre d'une image.
+ */
+.titre-biseaute {
+  color: var(--blue);
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.75),
+    0 -1px 0 rgba(9, 61, 128, 0.35);
+}

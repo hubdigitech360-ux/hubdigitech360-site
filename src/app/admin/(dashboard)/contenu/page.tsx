@@ -19,6 +19,22 @@ const TOUTES_LES_CLES = [
   "a_propos_texte_1",
   "a_propos_texte_2",
   "a_propos_texte_3",
+  "vision_titre",
+  "vision_intro",
+  "vision_mission",
+  "vision_stat_1",
+  "vision_stat_2",
+  "vision_diff_1_titre",
+  "vision_diff_1_texte",
+  "vision_diff_2_titre",
+  "vision_diff_2_texte",
+  "vision_diff_3_titre",
+  "vision_diff_3_texte",
+  "vision_horizon",
+  "vision_photo_1_url",
+  "vision_photo_2_url",
+  "vision_photo_3_url",
+  "vision_video_url",
 ];
 
 export default function ContenuPage() {
