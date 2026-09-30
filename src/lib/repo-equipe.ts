@@ -7,6 +7,7 @@ export type MembreEquipe = {
   nom: string;
   poste: string;
   photoUrl: string | null;
+  bio: string | null;
   ordreAffichage: number;
   createdAt: string;
 };
@@ -19,22 +20,22 @@ export function findMembreEquipeById(id: string): MembreEquipe | null {
   return (db.prepare("SELECT * FROM membres_equipe WHERE id = ?").get(id) as MembreEquipe | undefined) ?? null;
 }
 
-export function creerMembreEquipe(input: { nom: string; poste: string; photoUrl: string | null; ordreAffichage: number }): MembreEquipe {
+export function creerMembreEquipe(input: { nom: string; poste: string; photoUrl: string | null; bio: string | null; ordreAffichage: number }): MembreEquipe {
   const id = randomUUID();
   db.prepare(
-    `INSERT INTO membres_equipe (id, nom, poste, photoUrl, ordreAffichage) VALUES (?, ?, ?, ?, ?)`
-  ).run(id, input.nom, input.poste, input.photoUrl, input.ordreAffichage);
+    `INSERT INTO membres_equipe (id, nom, poste, photoUrl, bio, ordreAffichage) VALUES (?, ?, ?, ?, ?, ?)`
+  ).run(id, input.nom, input.poste, input.photoUrl, input.bio, input.ordreAffichage);
   return findMembreEquipeById(id)!;
 }
 
 export function modifierMembreEquipe(
   id: string,
-  input: { nom: string; poste: string; photoUrl: string | null; ordreAffichage: number }
+  input: { nom: string; poste: string; photoUrl: string | null; bio: string | null; ordreAffichage: number }
 ): MembreEquipe | null {
   if (!findMembreEquipeById(id)) return null;
   db.prepare(
-    `UPDATE membres_equipe SET nom = ?, poste = ?, photoUrl = ?, ordreAffichage = ? WHERE id = ?`
-  ).run(input.nom, input.poste, input.photoUrl, input.ordreAffichage, id);
+    `UPDATE membres_equipe SET nom = ?, poste = ?, photoUrl = ?, bio = ?, ordreAffichage = ? WHERE id = ?`
+  ).run(input.nom, input.poste, input.photoUrl, input.bio, input.ordreAffichage, id);
   return findMembreEquipeById(id);
 }
 

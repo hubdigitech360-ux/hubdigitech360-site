@@ -42,6 +42,19 @@ export function MembreForm({
       </div>
 
       <div className="flex flex-col gap-1">
+        <label className="text-xs font-medium text-slate-600">
+          Présentation (facultatif — affichée en dessous du profil, à la première personne)
+        </label>
+        <textarea
+          name="bio"
+          rows={10}
+          defaultValue={membre?.bio ?? ""}
+          className="border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-500"
+          placeholder={"Votre parcours, votre déclic, votre ambition...\nLaissez une ligne vide entre les paragraphes."}
+        />
+      </div>
+
+      <div className="flex flex-col gap-1">
         <label className="text-xs font-medium text-slate-600">Ordre d&apos;affichage (les plus petits nombres en premier)</label>
         <input
           type="number"

@@ -38,6 +38,10 @@ export default async function NotreVisionPage() {
   const photos = [p.vision_photo_1_url, p.vision_photo_2_url, p.vision_photo_3_url].filter(Boolean);
   const embed = p.vision_video_url ? urlEmbedYoutubeOuVimeo(p.vision_video_url) : null;
   const equipe = listMembresEquipe();
+  // Un membre avec une présentation (bio) obtient une fiche détaillée (photo + texte) ;
+  // les autres restent dans la grille compacte — voir admin/equipe § "Présentation".
+  const equipeAvecBio = equipe.filter((m) => m.bio);
+  const equipeSansBio = equipe.filter((m) => !m.bio);
 
   return (
     <div style={{ background: "var(--blue-soft)" }}>
@@ -103,9 +107,38 @@ export default async function NotreVisionPage() {
         <p className="mono mt-16 text-xs uppercase tracking-wider" style={{ color: "var(--blue)" }}>
           Notre équipe
         </p>
-        {equipe.length > 0 ? (
-          <div className="mt-4 grid grid-cols-2 gap-6 sm:grid-cols-3">
-            {equipe.map((m) => (
+
+        {/* Fiches détaillées — un membre avec une présentation (bio) obtient sa photo + son texte, à la première personne. */}
+        {equipeAvecBio.map((m) => (
+          <div key={m.id} className="mt-6 rounded-2xl p-8 shadow-sm" style={{ background: "#ffffff" }}>
+            <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:items-start sm:text-left">
+              {m.photoUrl ? (
+                <img src={m.photoUrl} alt={m.nom} className="h-28 w-28 flex-shrink-0 rounded-full object-cover shadow-sm" />
+              ) : (
+                <div
+                  className="flex h-28 w-28 flex-shrink-0 items-center justify-center rounded-full text-2xl font-semibold text-white"
+                  style={{ background: "var(--blue)" }}
+                >
+                  {m.nom.charAt(0)}
+                </div>
+              )}
+              <div>
+                <p className="text-lg font-semibold text-slate-900">{m.nom}</p>
+                <p className="mono text-xs text-slate-500">{m.poste}</p>
+              </div>
+            </div>
+            <div className="mt-6 flex flex-col gap-4 text-sm leading-relaxed text-slate-600">
+              {m.bio!.split(/\n\s*\n/).map((paragraphe, i) => (
+                <p key={i}>{paragraphe.trim()}</p>
+              ))}
+            </div>
+          </div>
+        ))}
+
+        {/* Grille compacte — les membres sans présentation détaillée. */}
+        {equipeSansBio.length > 0 && (
+          <div className={`grid grid-cols-2 gap-6 sm:grid-cols-3 ${equipeAvecBio.length > 0 ? "mt-10" : "mt-4"}`}>
+            {equipeSansBio.map((m) => (
               <div key={m.id} className="flex flex-col items-center text-center">
                 {m.photoUrl ? (
                   <img src={m.photoUrl} alt={m.nom} className="h-24 w-24 rounded-full object-cover shadow-sm" />
@@ -122,9 +155,9 @@ export default async function NotreVisionPage() {
               </div>
             ))}
           </div>
-        ) : (
-          <p className="mt-4 text-sm text-slate-400">Présentation de l&apos;équipe à venir.</p>
         )}
+
+        {equipe.length === 0 && <p className="mt-4 text-sm text-slate-400">Présentation de l&apos;équipe à venir.</p>}
 
         <div className="mt-16 rounded-2xl p-8 text-center shadow-sm" style={{ background: "#ffffff" }}>
           <p className="titre-biseaute text-xl">{p.vision_horizon}</p>

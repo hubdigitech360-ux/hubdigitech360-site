@@ -50,15 +50,28 @@ function init(): DatabaseSync {
     -- Page "Notre Vision" — présentation de l'équipe (demande explicite,
     -- 2026-09-30). Liste distincte des publications : pas de statut
     -- brouillon/publié, un membre ajouté est immédiatement visible.
+    -- "bio" (demande explicite, 2026-09-30) : présentation longue affichée
+    -- sous la photo/poste d'un membre — facultative, un membre sans bio
+    -- reste affiché de façon compacte (voir notre-vision/page.tsx).
     CREATE TABLE IF NOT EXISTS membres_equipe (
       id TEXT PRIMARY KEY,
       nom TEXT NOT NULL,
       poste TEXT NOT NULL,
       photoUrl TEXT,
+      bio TEXT,
       ordreAffichage INTEGER NOT NULL DEFAULT 0,
       createdAt TEXT NOT NULL DEFAULT (datetime('now'))
     );
   `);
+
+  // "bio" ajoutée après la création initiale de membres_equipe — ALTER TABLE
+  // nécessaire pour une base déjà existante (CREATE TABLE IF NOT EXISTS ne
+  // modifie pas une table déjà là), ignoré si la colonne existe déjà.
+  try {
+    db.exec("ALTER TABLE membres_equipe ADD COLUMN bio TEXT");
+  } catch {
+    // Colonne déjà présente (base créée après cet ajout) — rien à faire.
+  }
 
   return db;
 }

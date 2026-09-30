@@ -10,6 +10,7 @@ import type { ActionState } from "./auth";
 async function extraireChamps(formData: FormData, anciennePhotoUrl: string | null) {
   const nom = String(formData.get("nom") ?? "").trim();
   const poste = String(formData.get("poste") ?? "").trim();
+  const bio = String(formData.get("bio") ?? "").trim() || null;
   const ordreAffichage = Number(formData.get("ordreAffichage") ?? 0) || 0;
 
   let photoUrl = anciennePhotoUrl;
@@ -24,7 +25,7 @@ async function extraireChamps(formData: FormData, anciennePhotoUrl: string | nul
     photoUrl = null;
   }
 
-  return { nom, poste, photoUrl, ordreAffichage };
+  return { nom, poste, photoUrl, bio, ordreAffichage };
 }
 
 export async function creerMembreEquipeAction(_prev: ActionState, formData: FormData): Promise<ActionState> {
