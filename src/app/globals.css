@@ -6,13 +6,23 @@
   --ink: #12131a;
   --ink-soft: #5b6472;
   --line: #e2e5ea;
-  --navy: #0b1220;
-  --navy-2: #121b2e;
-  /* Bleu clair extrait du logo Hub Digitech360 (demande explicite, 2026-09-24) — remplace le bleu générique initial. */
-  --blue: #0d81fd;
-  --blue-soft: #dcedfe;
+
+  /*
+   * Charte Hub Digitech360 (demande explicite, 2026-09-30) : le Bleu Tech
+   * est la couleur DOMINANTE (CTA, liens, icônes, accents, interactions) ;
+   * le Bleu Profond reste secondaire (variations/contrastes) ; le Navy
+   * Corporate est réservé aux titres et zones structurantes profondes ;
+   * le blanc porte l'espace et la respiration. Les autres teintes ci-dessus
+   * (--ink, --ink-soft, --line, --bg) restent neutres à dessein : le texte
+   * courant doit rester lisible sans rivaliser avec ces couleurs de marque.
+   */
+  --blue: #0e7efe; /* Bleu Tech — dominant */
+  --blue-deep: #065ccd; /* Bleu Profond — secondaire */
+  --navy: #042556; /* Navy Corporate — titres, structure, profondeur */
+  --navy-2: color-mix(in srgb, var(--navy) 70%, var(--blue-deep) 30%);
+  --blue-soft: color-mix(in srgb, var(--blue) 12%, white);
   --on-navy: #e7ecf5;
-  --on-navy-soft: #93a3bd;
+  --on-navy-soft: color-mix(in srgb, var(--on-navy) 55%, var(--blue) 45%);
 }
 
 body {
@@ -25,6 +35,7 @@ h1, h2, h3 {
   font-family: "Montserrat", ui-sans-serif, system-ui, sans-serif;
   font-weight: 700;
   letter-spacing: -0.01em;
+  color: var(--navy);
 }
 
 .mono {
@@ -54,13 +65,14 @@ h1, h2, h3 {
  * « c'est le fond de la vision qui doit être bleu clair et le texte en
  * autre couleur » — corrige une première version où le texte était lui
  * aussi bleu, peu lisible sur un fond bleu clair). Le fond de la page est
- * bleu clair (voir notre-vision/page.tsx) ; le texte reste dans l'encre
- * sombre standard du site pour un contraste net, avec juste un léger
- * relief (biseau) via une ombre claire au-dessus et sombre en dessous.
+ * bleu clair (voir notre-vision/page.tsx) ; le texte reste en Navy
+ * Corporate (titres, demande explicite du 2026-09-30) pour un contraste
+ * net, avec juste un léger relief (biseau) via une ombre claire au-dessus
+ * et une teinte du bleu de marque en dessous.
  */
 .titre-biseaute {
-  color: var(--ink);
+  color: var(--navy);
   text-shadow:
     0 1px 0 rgba(255, 255, 255, 0.85),
-    0 -1px 0 rgba(13, 129, 253, 0.2);
+    0 -1px 0 color-mix(in srgb, var(--blue) 20%, transparent);
 }
