@@ -36,7 +36,9 @@ export default async function AccueilPage() {
           <p className="mono text-xs uppercase tracking-wider" style={{ color: "var(--blue)" }}>
             Agence Tech, Marketing &amp; Communication — Douala, Cameroun
           </p>
-          <h1 className="mt-5 text-4xl leading-tight sm:text-5xl">{p.accueil_titre}</h1>
+          <h1 className="mt-5 text-4xl leading-tight sm:text-5xl" style={{ color: "var(--on-navy)" }}>
+            {p.accueil_titre}
+          </h1>
           <p className="mt-6 max-w-xl text-slate-400">{p.accueil_soustitre}</p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a href="#performa360" className="btn-primary px-6 py-3 text-sm">
@@ -62,7 +64,9 @@ export default async function AccueilPage() {
             <span className="mono text-sm" style={{ color: "var(--blue)" }}>
               {CAPACITES[0].lettre}
             </span>
-            <h3 className="mt-2 text-xl">{CAPACITES[0].titre}</h3>
+            <h3 className="mt-2 text-xl" style={{ color: "var(--on-navy)" }}>
+              {CAPACITES[0].titre}
+            </h3>
             <p className="mt-2 max-w-lg text-sm leading-relaxed text-slate-400">{CAPACITES[0].description}</p>
           </div>
           {CAPACITES.slice(1).map((c) => (

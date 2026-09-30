@@ -34,7 +34,9 @@ export default async function ServicesPage() {
           style={{ background: "var(--navy)" }}
         >
           <span className="mono text-sm" style={{ color: "var(--blue)" }}>{CATEGORIES[0].lettre}</span>
-          <h2 className="mt-2 text-xl">{CATEGORIES[0].titre}</h2>
+          <h2 className="mt-2 text-xl" style={{ color: "var(--on-navy)" }}>
+            {CATEGORIES[0].titre}
+          </h2>
           <p className="mt-3 max-w-lg text-sm leading-relaxed text-slate-400">{CATEGORIES[0].description}</p>
         </div>
         {CATEGORIES.slice(1).map((c) => (
