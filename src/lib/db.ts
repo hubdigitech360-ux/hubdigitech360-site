@@ -77,3 +77,21 @@ function init(): DatabaseSync {
 }
 
 export const db = globalForDb.__hubDb ?? (globalForDb.__hubDb = init());
+
+/**
+ * `node:sqlite` renvoie des lignes en objets à prototype nul (`[Object:
+ * null prototype]`) — React rejette ce genre d'objet quand un Server
+ * Component le passe en prop à un composant "use client" ("Only plain
+ * objects... Classes or null prototypes are not supported"), ce qui cassait
+ * l'édition (membre d'équipe, publication) dès qu'un formulaire client
+ * recevait la ligne chargée depuis la base. La copie par spread produit un
+ * objet ordinaire (prototype Object standard) qui traverse cette frontière
+ * sans problème.
+ */
+export function ligne<T extends object>(row: T | undefined): T | null {
+  return row ? { ...row } : null;
+}
+
+export function lignes<T extends object>(rows: T[]): T[] {
+  return rows.map((row) => ({ ...row }));
+}

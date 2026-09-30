@@ -1,5 +1,5 @@
 import { randomUUID } from "node:crypto";
-import { db } from "./db";
+import { db, ligne, lignes } from "./db";
 
 /** Présentation de l'équipe sur la page "Notre Vision" (demande explicite, 2026-09-30). */
 export type MembreEquipe = {
@@ -13,11 +13,11 @@ export type MembreEquipe = {
 };
 
 export function listMembresEquipe(): MembreEquipe[] {
-  return db.prepare("SELECT * FROM membres_equipe ORDER BY ordreAffichage ASC, createdAt ASC").all() as MembreEquipe[];
+  return lignes(db.prepare("SELECT * FROM membres_equipe ORDER BY ordreAffichage ASC, createdAt ASC").all() as MembreEquipe[]);
 }
 
 export function findMembreEquipeById(id: string): MembreEquipe | null {
-  return (db.prepare("SELECT * FROM membres_equipe WHERE id = ?").get(id) as MembreEquipe | undefined) ?? null;
+  return ligne(db.prepare("SELECT * FROM membres_equipe WHERE id = ?").get(id) as MembreEquipe | undefined);
 }
 
 export function creerMembreEquipe(input: { nom: string; poste: string; photoUrl: string | null; bio: string | null; ordreAffichage: number }): MembreEquipe {

@@ -1,5 +1,5 @@
 import { randomUUID } from "node:crypto";
-import { db } from "./db";
+import { db, ligne, lignes } from "./db";
 
 export type StatutPublication = "brouillon" | "publie";
 
@@ -42,24 +42,22 @@ function slugUnique(base: string, idAExclure?: string): string {
 }
 
 export function listPublications(): Publication[] {
-  return db.prepare("SELECT * FROM publications ORDER BY createdAt DESC").all() as Publication[];
+  return lignes(db.prepare("SELECT * FROM publications ORDER BY createdAt DESC").all() as Publication[]);
 }
 
 export function listPublicationsPubliees(): Publication[] {
-  return db
-    .prepare("SELECT * FROM publications WHERE statut = 'publie' ORDER BY publieLe DESC")
-    .all() as Publication[];
+  return lignes(
+    db.prepare("SELECT * FROM publications WHERE statut = 'publie' ORDER BY publieLe DESC").all() as Publication[]
+  );
 }
 
 export function findPublicationById(id: string): Publication | null {
-  return (db.prepare("SELECT * FROM publications WHERE id = ?").get(id) as Publication | undefined) ?? null;
+  return ligne(db.prepare("SELECT * FROM publications WHERE id = ?").get(id) as Publication | undefined);
 }
 
 export function findPublicationBySlug(slug: string): Publication | null {
-  return (
-    (db.prepare("SELECT * FROM publications WHERE slug = ? AND statut = 'publie'").get(slug) as
-      | Publication
-      | undefined) ?? null
+  return ligne(
+    db.prepare("SELECT * FROM publications WHERE slug = ? AND statut = 'publie'").get(slug) as Publication | undefined
   );
 }
 
