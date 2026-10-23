@@ -31,8 +31,14 @@ export default async function AccueilPage() {
 
   return (
     <>
-      <section style={{ background: "var(--navy)" }} className="py-24 text-white">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6">
+      <section
+        className="relative overflow-hidden bg-cover bg-center py-24 text-white"
+        style={{
+          backgroundImage:
+            "linear-gradient(135deg, rgba(10,20,40,0.92), rgba(10,20,40,0.80)), url('/images/hero-accueil.jpg')",
+        }}
+      >
+        <div className="relative mx-auto max-w-3xl px-4 sm:px-6">
           <p className="mono text-xs uppercase tracking-wider" style={{ color: "var(--blue)" }}>
             Agence Tech, Marketing &amp; Communication — Douala, Cameroun
           </p>
